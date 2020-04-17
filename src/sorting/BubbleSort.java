@@ -2,6 +2,29 @@ package sorting;
 
 import java.util.Comparator;
 
+
+/**
+ * Space complexity: O(1) Only 1 var created
+ * 
+ * Time complexity: O(n^2) based on worst case
+ * 
+ * Best case: O(n)
+ * Array is sorted, i = 0, j loop from 0 to n - 2
+ * and no swap is made --> hasSwapped is still false
+ * Then, as hasSwapped is false, it breaks the outer
+ * loop within i = 0 --> n - 1 operations 
+ * ----> O(n)
+ * 
+ * Worst case: O(n^2)
+ * Array is inversely sorted:
+ * i = 0 -> j = 0 to n - 2
+ * i = 1 -> j = 0 to n - 3
+ * i = 2 -> j = 0 to n - 4
+ * ...
+ * i = n - 2 -> j = 0 to 1
+ * total operations = n - 1 + n - 2 + ... + 2 = (n * (n - 1) - 1) * 0.5
+ * ----> O(n^2) 
+ */
 public class BubbleSort<E> implements ISort<E> {
     /**
      * @param array

@@ -2,11 +2,22 @@ package sorting;
 
 import java.util.Comparator;
 
+/**
+ * Space complexity: O(1) Only 1 var: extremeIndex
+ * 
+ * Time complexity: O(n^2) based on worst case
+ * 
+ * Worst case: Array is inversedly sorted, every outer loop,
+ * the extreme index in that the other end, so for array
+ * size n, the inner loop will run
+ * n - 1 + n - 2 + ... + 1 = (n - 1) * n * 0.5 ----> O(n^2)
+ */
 public class SelectionSort<E> implements ISort<E> {
     @Override
     public void sort(E[] array, Comparator<E> comparator) {
+        int extremeIndex = 0;
         for (int i = 0; i < array.length - 1; i++) {
-            int extremeIndex = i;
+            extremeIndex = i;
             for (int j = i + 1; j < array.length; j++) {
                 if (comparator.compare(array[extremeIndex], array[j]) > 0) {
                     extremeIndex = j;
@@ -18,8 +29,9 @@ public class SelectionSort<E> implements ISort<E> {
 
     @Override
     public void sort(E[] array, Comparator<E> comparator, SortDirection sortDirection) {
+        int extremeIndex;
         for (int i = 0; i < array.length - 1; i++) {
-            int extremeIndex = i;
+            extremeIndex = i;
             for (int j = i + 1; j < array.length; j++) {
                 if (comparator.compare(array[extremeIndex], array[j]) == sortDirection.compareResult()) {
                     extremeIndex = j;

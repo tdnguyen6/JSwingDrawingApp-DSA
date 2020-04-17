@@ -3,7 +3,10 @@ package sorting;
 import java.util.Comparator;
 
 /**
- * Following Knuth sequence gap = 3gap + 1
+ * Space complexity: O(1) no variable created
+ * 
+ * Time complexity: Based on empirical study
+ * Ranging from O(n^(4/3)) to O(n^n) depending on the gap sequence
  */
 public class ShellSort<E> implements ISort<E> {
     public void setSequence(Sequence sequence) {
