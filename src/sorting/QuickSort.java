@@ -30,8 +30,9 @@ public class QuickSort<E> implements ISort<E> {
     private int partition(
             E[] array, int first, int last, Comparator<E> comparator, SortDirection sortDirection) {
 
-//        int pivotIndex = median(random.nextInt(last - first + 1) + first, random.nextInt(last - first + 1) + first, random.nextInt(last - first + 1) + first, array, comparator);
-//        swapArrayPosition(array, first, pivotIndex);
+        // Pivot is the median of 3 random elements --> better performance
+        int pivotIndex = median(random.nextInt(last - first + 1) + first, random.nextInt(last - first + 1) + first, random.nextInt(last - first + 1) + first, array, comparator);
+        swapArrayPosition(array, first, pivotIndex);
 
         E pivot = array[first];
         int i = last + 1;
